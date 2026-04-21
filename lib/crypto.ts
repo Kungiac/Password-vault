@@ -90,3 +90,27 @@ export function saltToHex(salt: Uint8Array): string {
 export function saltFromHex(hex: string): Uint8Array {
   return hexToBuffer(hex);
 }
+
+/** Generate a random 32-char hex vault key (16 random bytes = 128 bits of entropy). */
+export function generateVaultKey(): string {
+  return bufferToHex(crypto.getRandomValues(new Uint8Array(16)));
+}
+
+/**
+ * Format a vault key as XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX for readability.
+ * Accepts keys with or without dashes.
+ */
+export function formatVaultKey(key: string): string {
+  const c = key.replace(/-/g, "");
+  return [c.slice(0, 8), c.slice(8, 16), c.slice(16, 24), c.slice(24, 32)].join("-");
+}
+
+/** Extract the salt portion (first 8 bytes) from a vault key. */
+export function vaultKeyToSalt(key: string): Uint8Array {
+  return hexToBuffer(key.replace(/-/g, "").slice(0, 16));
+}
+
+/** Extract the password portion (last 8 bytes as hex string) from a vault key. */
+export function vaultKeyToPassword(key: string): string {
+  return key.replace(/-/g, "").slice(16);
+}
