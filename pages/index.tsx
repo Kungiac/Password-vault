@@ -501,7 +501,7 @@ export default function HomePage(): JSX.Element {
                   First time here?{" "}
                   <button
                     type="button"
-                    className="pv-btn pv-btn--ghost"
+                    className="pv-btn pv-btn--grey"
                     disabled={loading}
                     onClick={() => void handleCreateVault()}
                   >
