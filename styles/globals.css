@@ -92,7 +92,7 @@ body {
 }
 
 .pv-lead {
-  margin: 0 10rem 1.75rem;
+  margin: 1rem 15rem 1.75rem;
   color: var(--pv-text-muted);
   font-size: 1rem;
   line-height: 1.55;

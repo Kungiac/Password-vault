@@ -219,7 +219,7 @@ export default function HomePage(): JSX.Element {
       <div className="pv-page">
         <main className="pv-shell">
           <h1 className="pv-title">Gimme Passwords</h1>
-          <p className="pv-lead">Your passwords, encrypted in your browser.</p>
+          <p className="pv-lead">Let me keep your passwords safe</p>
 
           <div className="pv-card">
             {/* Cognito not configured warning */}
